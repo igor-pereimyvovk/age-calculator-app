@@ -1,25 +1,41 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from "react";
+import { Box, ThemeProvider, useMediaQuery } from "@mui/material";
+import Wrapper from "./components/UI/Wrapper";
+import BirthForm from "./components/BirthForm";
+import UserAge from "./components/UserAge";
+import { theme } from "./theme/theme";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    const [userBirth, setUserBirth] = useState({
+        day: 0,
+        month: 0,
+        year: 0,
+    });
+    const [showAge, setShowAge] = useState(false);
+
+    const media = useMediaQuery("(max-width:650px)");
+
+    return (
+        <ThemeProvider theme={theme}>
+            <Wrapper>
+                <Box
+                    sx={{
+                        width: "570px",
+                        px: media ? 2.2 : 5,
+                        py: 5,
+                        backgroundColor: "hsl(0, 0%, 100%)",
+                        borderRadius: "15px 15px 25% 15px",
+                    }}
+                >
+                    <BirthForm
+                        setUserBirth={setUserBirth}
+                        setShowAge={setShowAge}
+                    />
+                    <UserAge userBirth={userBirth} showAge={showAge} />
+                </Box>
+            </Wrapper>
+        </ThemeProvider>
+    );
 }
 
 export default App;
