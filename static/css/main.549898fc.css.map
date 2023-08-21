@@ -1,0 +1,1 @@
+{"version":3,"file":"static/css/main.549898fc.css","mappings":"uGAEA,KACI,QAAS,CACT,SACJ","sources":["index.css"],"sourcesContent":["@import url(\"https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,700;1,400;1,800&display=swap\");\r\n\r\nbody {\r\n    margin: 0;\r\n    padding: 0;\r\n}\r\n"],"names":[],"sourceRoot":""}
